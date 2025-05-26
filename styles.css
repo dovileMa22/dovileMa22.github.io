@@ -105,6 +105,7 @@ body,html {
     -o-animation: Gradient 20s ease infinite;
     animation: Gradient 20s ease infinite;
     font-family: 'Comfortaa', cursive;
+    text-align: left;
 }
 #skills {
     margin:4vh 0px !important;
@@ -113,6 +114,7 @@ body,html {
 #work {
     margin:4vh 0px !important;
     padding:2vh 0px !important;
+    text-align: left;
 }
 #contact {
     margin:4vh 0px !important;
@@ -372,4 +374,106 @@ button:focus {
     margin-right: 15px; /* Tarpas tarp logotipo ir pavadinimo */
     /* Jei logotipas vis dar su baltu fonu, galite pabandyti pritaikyti blend režimą, bet geriausia turėti permatomą PNG/SVG */
     /* mix-blend-mode: multiply; */ /* Šis stilius veikia gerai ant balto fono esant juodam, bet geriau turėti permatomą logo */
+}
+/* Stiliai naujai galerijos sekcijai */
+#gallery-section {
+    padding: 60px 0; /* Vertikalus užpildas, galite reguliuoti tarpą */
+    background: #000; /* Pakeiskite foną, jei reikia */
+    color: #fff; /* Teksto spalva sekcijoje */
+    text-align: center;
+}
+
+/* Antraštė "Galerija." - panaši į kitas jūsų sekcijų antraštes */
+#gallery-section .section_title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: -webkit-linear-gradient(left, #ff5e5e, #fc4e00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px; /* Tarpas po antrašte */
+}
+
+/* Konteineris nuotraukų galerijai */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Leisti nuotraukoms pereiti į kitą eilutę */
+    justify-content: center; /* Centruoti nuotraukas horizontaliai */
+    gap: 30px; /* Tarpas tarp nuotraukų */
+    padding: 0 5%; /* Horizontalus užpildas, kad nuotraukos nebūtų prie kraštų */
+}
+
+/* Stilius atskiram galerijos elementui (kiekvienai nuotraukai) */
+.gallery-item {
+    position: relative; /* Būtina, kad overlay veiktų tinkamai */
+    width: 300px; /* Nustatykite nuotraukos plotį, galite reguliuoti */
+    height: 200px; /* Nustatykite nuotraukos aukštį, kad būtų vienodos proporcijos */
+    overflow: hidden; /* Paslėpti tai, kas išeina už rėmų */
+    border-radius: 8px; /* Šiek tiek užapvalinti kampus */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Šešėlis */
+    cursor: pointer; /* Rodyti, kad elementas interaktyvus */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animacija užvedus */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Kad nuotrauka užpildytų elementą neprarandant proporcijų */
+    display: block; /* Pašalina nereikalingą tarpą po paveikslėliu */
+    transition: transform 0.3s ease-in-out; /* Animacija užvedus */
+}
+
+/* Animacija, kai užvedama pelė */
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.05); /* Iššoka ir šiek tiek padidėja */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Padidėja šešėlis */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Paveikslėlis šiek tiek padidėja viduje */
+}
+
+/* Stilius tekstui, kuris atsiranda užvedus pelyte (overlay) */
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Pusiau permatomas fonas */
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transform: translateY(100%); /* Pradžioje paslėptas apačioje */
+    transition: transform 0.3s ease-in-out; /* Animacija atsirandant/dingstant */
+    font-size: 14px;
+    text-align: center;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0); /* Atsiranda užvedus pelyte */
+}
+
+/* Media užklausos atsakingam dizainui */
+@media (max-width: 768px) {
+    .image-gallery {
+        flex-direction: column; /* Nuotraukos stulpeliu mažesniuose ekranuose */
+        align-items: center;
+    }
+    .gallery-item {
+        width: 90%; /* Platesnės nuotraukos mažesniuose ekranuose */
+        height: 250px; /* Pakoreguokite aukštį, jei reikia */
+    }
+    #gallery-section .section_title {
+        font-size: 40px; /* Sumažinti antraštės šriftą */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-item {
+        height: 200px;
+    }
+    #gallery-section .section_title {
+        font-size: 30px;
+    }
 }
