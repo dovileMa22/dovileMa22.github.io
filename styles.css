@@ -357,3 +357,19 @@ button:focus {
     color: #000;
     cursor: pointer;
 }
+/* Stiliai naujam konteineriui, kad logotipas ir pavadinimas būtų šalia */
+#logo-and-title-container {
+    display: flex; /* Naudojame Flexbox, kad elementai būtų vienoje eilutėje */
+    align-items: center; /* Centruojame elementus vertikaliai (logotipą ir tekstą) */
+    justify-content: center; /* Centruojame visą konteinerį horizontaliai antraštėje */
+    margin-bottom: 20px; /* Šiek tiek vietos tarp logotipo/pavadinimo ir nuorodų */
+}
+
+/* Stiliai logotipui */
+#site-logo {
+    height: 40px; /* Nustatykite logotipo aukštį, koreguokite pagal poreikį */
+    width: auto; /* Plotis prisitaikys automatiškai, išlaikant proporcijas */
+    margin-right: 15px; /* Tarpas tarp logotipo ir pavadinimo */
+    /* Jei logotipas vis dar su baltu fonu, galite pabandyti pritaikyti blend režimą, bet geriausia turėti permatomą PNG/SVG */
+    /* mix-blend-mode: multiply; */ /* Šis stilius veikia gerai ant balto fono esant juodam, bet geriau turėti permatomą logo */
+}
