@@ -117,8 +117,9 @@ body,html {
     text-align: left;
 }
 #contact {
-    margin:4vh 0px !important;
-    padding:2vh 0px !important;
+    margin: 0px !important;
+    padding-top: 150px; 
+    padding-bottom: 100px
 }
 /* Stiliai iframe elementui kontaktų puslapyje */
 #contact-page-content iframe, #contact iframe { /* Naudojame abu selektorius, jei kartais pakeistumėte id */
